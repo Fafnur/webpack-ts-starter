@@ -41,7 +41,7 @@ const config = {
   },
   plugins: [
     new WriteFilePlugin(),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       {
         from: 'src/index.html',
