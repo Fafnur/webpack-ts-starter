@@ -1,0 +1,58 @@
+# Webpack ts starter
+
+Starter for development typescipt application with webpack. [Russian](./docs/ru.md)
+
+## Clone starter
+
+To get started, you should run command:
+
+```shell script
+git clone git@github.com:Fafnur/webpack-ts-starter.git project
+```
+
+## Install dependencies
+
+After clone project, you should install dependencies:
+
+```shell script
+yarn install
+```
+
+## Development
+
+For development, you can use the command that runs webpack dev server:
+
+```shell script
+yarn run serve
+```
+
+## Build 
+
+For build your application, run command:
+
+```shell script
+yarn run build
+```
+
+For build your application on production, run command:
+
+```shell script
+yarn run build:prod
+```
+
+After buld, 3 files will be generated in the dist folder:
+
+- index.html
+- bundle.js
+- style.css
+
+And the `assets` folder, which will contain all the necessary files.
+
+## Add libraries
+
+For add libraries you can use command:
+
+```shell script
+yarn add <lib-name>
+``` 
+
