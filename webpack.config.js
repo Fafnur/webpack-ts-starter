@@ -5,6 +5,7 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
+  mode: 'development',
   entry: './src/main.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -16,7 +17,7 @@ const config = {
   devServer: {
     contentBase: 'dist',
     compress: true,
-    port: 8080
+    port: 3000
   },
   module: {
     rules: [
@@ -36,6 +37,10 @@ const config = {
           fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
         })
+      },
+      {
+        test: /\.(svg|woff|woff2|ttf|eot|otf)([\?]?.*)$/,
+        loader: 'file-loader?name=assets/fonts/[name].[ext]',
       }
     ],
   },
@@ -46,6 +51,13 @@ const config = {
       {
         from: 'src/index.html',
         to: './index.html'
+      },
+      {
+        from: 'src/assets/**/*',
+        to: './assets',
+        transformPath(targetPath, absolutePath) {
+          return targetPath.replace('src/assets', '');
+        }
       },
     ]),
     new ExtractTextPlugin('style.css')
