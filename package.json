@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "main": "index.js",
   "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^12.12.29",
     "clean-webpack-plugin": "^3.0.0",
@@ -10,6 +11,7 @@
     "css-loader": "^3.4.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^5.1.0",
+    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.13.1",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
@@ -25,11 +27,10 @@
     "webpack-merge": "^4.2.2",
     "write-file-webpack-plugin": "^4.5.1"
   },
-  "dependencies": {},
   "scripts": {
-    "serve": "webpack-dev-server",
+    "serve": "webpack-dev-server --mode=development",
     "build": "webpack",
-    "build:prod": "webpack --config webpack.config.prod.js --production"
+    "build:prod": "webpack --config webpack.config.prod.js"
   },
   "engines": {
     "node": ">=12.0.0"

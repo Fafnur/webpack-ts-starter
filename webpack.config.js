@@ -3,13 +3,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-  mode: 'development',
   entry: './src/main.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle-[hash].js'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js']
@@ -35,7 +35,10 @@ const config = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: [
+            'css-loader',
+            'sass-loader'
+          ]
         })
       },
       {
@@ -60,7 +63,19 @@ const config = {
         }
       },
     ]),
-    new ExtractTextPlugin('style.css')
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true
+      }
+    }),
+    new ExtractTextPlugin({
+      filename: 'style-[hash].css',
+      allChunks: true
+    })
   ]
 };
 
