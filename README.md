@@ -56,3 +56,16 @@ For add libraries you can use command:
 yarn add <lib-name>
 ``` 
 
+## Add polyfills
+
+For add polyfills you can use [core-js](https://github.com/zloirock/core-js):
+
+```shell script
+yarn add core-js
+``` 
+
+IE10 and IE11 requires the following for NgClass support on SVG elements
+
+```shell script
+yarn add classlist.js
+``` 

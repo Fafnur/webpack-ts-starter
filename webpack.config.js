@@ -1,11 +1,10 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const config = {
+module.exports = {
   entry: './src/main.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -48,7 +47,6 @@ const config = {
     ],
   },
   plugins: [
-    new WriteFilePlugin(),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       {
@@ -78,5 +76,3 @@ const config = {
     })
   ]
 };
-
-module.exports = config;
