@@ -52,19 +52,22 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyWebpackPlugin([
-      {
-        from: 'src/index.html',
-        to: './index.html'
-      },
-      {
-        from: 'src/assets/**/*',
-        to: './assets',
-        transformPath(targetPath, absolutePath) {
-          return targetPath.replace('src/assets', '');
-        }
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/index.html',
+          to: './index.html'
+        },
+        {
+          from: 'src/assets/**/*',
+          to: './assets',
+          transformPath(targetPath, absolutePath) {
+            console.log(targetPath, absolutePath);
+            return targetPath.replace('src/assets', '');
+          }
+        },
+      ]
+    }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       minify: {
