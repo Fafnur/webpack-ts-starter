@@ -8,27 +8,21 @@ module.exports = {
   entry: './src/main.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle-[hash].js'
+    filename: 'bundle-[hash].js',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
   },
   devServer: {
     contentBase: 'dist',
     compress: true,
-    port: 3000
+    port: 3000,
   },
   module: {
     rules: [
       {
-        test: /\.ts$/,
-        enforce: 'pre',
-        loader: 'tslint-loader',
-        options: {/* Loader options go here */}
-      },
-      {
         test: /\.tsx?$/,
-        loader: 'ts-loader'
+        loader: 'ts-loader',
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -47,7 +41,7 @@ module.exports = {
       {
         test: /\.(svg|woff|woff2|ttf|eot|otf)([\?]?.*)$/,
         loader: 'file-loader?name=assets/fonts/[name].[ext]',
-      }
+      },
     ],
   },
   plugins: [
@@ -56,17 +50,16 @@ module.exports = {
       patterns: [
         {
           from: 'src/index.html',
-          to: './index.html'
+          to: './index.html',
         },
         {
           from: 'src/assets/**/*',
           to: './assets',
-          transformPath(targetPath, absolutePath) {
-            console.log(targetPath, absolutePath);
+          transformPath: (targetPath) => {
             return targetPath.replace('src/assets', '');
-          }
+          },
         },
-      ]
+      ],
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -74,12 +67,12 @@ module.exports = {
         collapseWhitespace: true,
         removeComments: true,
         removeRedundantAttributes: true,
-        useShortDoctype: true
-      }
+        useShortDoctype: true,
+      },
     }),
     new MiniCssExtractPlugin({
       filename: 'style-[hash].css',
-      allChunks: true
-    })
-  ]
+      allChunks: true,
+    }),
+  ],
 };

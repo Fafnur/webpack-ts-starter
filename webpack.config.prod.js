@@ -11,9 +11,9 @@ module.exports = merge(common, {
         enforce: 'pre',
         loader: 'ts-loader',
         options: {
-          configFile: 'tsconfig.prod.json'
-        }
-      }
+          configFile: 'tsconfig.prod.json',
+        },
+      },
     ],
-  }
+  },
 });
