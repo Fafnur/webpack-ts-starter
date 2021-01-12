@@ -1,6 +1,6 @@
 # Webpack ts starter
 
-Starter for development typescipt application with webpack. [Russian](./docs/ru.md)
+Starter for development typescript application with webpack. [Russian](./docs/ru.md)
 
 ## Clone starter
 
@@ -46,7 +46,7 @@ After buld, 3 files will be generated in the dist folder:
 - bundle.js
 - style.css
 
-And the `assets` folder, which will contain all the necessary files.
+The `assets` folder, which will contain all the necessary files.
 
 ## Add libraries
 
