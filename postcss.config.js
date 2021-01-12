@@ -3,6 +3,6 @@ module.exports = ({ file, options, env }) => ({
   plugins: {
     'postcss-import': {},
     'postcss-cssnext': {},
-    'cssnano':  env === 'production'  ? {} : false
-  }
+    cssnano: env === 'production' ? {} : false,
+  },
 });

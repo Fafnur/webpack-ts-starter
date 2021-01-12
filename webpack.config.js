@@ -29,19 +29,21 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development',
-            },
+            options: {},
           },
           'css-loader',
           'postcss-loader',
           'sass-loader',
         ],
       },
-      {
-        test: /\.(svg|woff|woff2|ttf|eot|otf)([\?]?.*)$/,
-        loader: 'file-loader?name=assets/fonts/[name].[ext]',
-      },
+      // {
+      //   test: /\.(svg|woff|woff2|ttf|eot|otf)([\?]?.*)$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader?name=assets/fonts/[name].[ext]',
+      //     },
+      //   ],
+      // },
     ],
   },
   plugins: [
@@ -49,20 +51,15 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/index.html',
-          to: './index.html',
-        },
-        {
-          from: 'src/assets/**/*',
+          from: '**/*',
+          context: path.resolve(__dirname, 'src', 'assets'),
           to: './assets',
-          transformPath: (targetPath) => {
-            return targetPath.replace('src/assets', '');
-          },
         },
       ],
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      filename: 'index.html',
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -72,7 +69,6 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'style-[hash].css',
-      allChunks: true,
     }),
   ],
 };
