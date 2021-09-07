@@ -1,22 +1,30 @@
-const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import  MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import * as path from 'path';
+import { Configuration } from 'webpack';
 
-module.exports = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const config: Configuration & Record<string, any> = {
+  mode: 'development',
   entry: './src/main.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle-[hash].js',
   },
+  target: ['web', 'es2015'],
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
   devServer: {
-    contentBase: 'dist',
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    liveReload: true,
     compress: true,
     port: 3000,
+    hot: false,
   },
   module: {
     rules: [
@@ -72,3 +80,5 @@ module.exports = {
     }),
   ],
 };
+
+export default config;
