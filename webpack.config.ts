@@ -39,7 +39,12 @@ const config: Configuration & Record<string, any> = {
             loader: MiniCssExtractPlugin.loader,
             options: {},
           },
-          'css-loader',
+          {
+            loader: "css-loader",
+            options: {
+              url: false,
+            },
+          },
           'postcss-loader',
           'sass-loader',
         ],
