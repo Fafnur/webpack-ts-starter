@@ -2,7 +2,7 @@
 
 Starter for development typescript application with webpack. [Russian](./docs/ru.md)
 
-**NOTE: Use Nx [WEB](https://nx.dev/web/overview) instead of webpack-ts-starter.**
+**NOTE: Use Nx [WEB](https://nx.dev/web/overview) instead of webpack-ts-starter.** Read more on [habr](https://habr.com/ru/post/652453/).
 
 ## Clone starter
 
