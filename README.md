@@ -2,6 +2,8 @@
 
 Starter for development typescript application with webpack. [Russian](./docs/ru.md)
 
+**NOTE: Use Nx [WEB](https://nx.dev/web/overview) instead of webpack-ts-starter.**
+
 ## Clone starter
 
 To get started, you should run command:
