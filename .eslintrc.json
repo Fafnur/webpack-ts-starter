@@ -8,7 +8,6 @@
     "prettier",
     "simple-import-sort",
     "import",
-    "prefer-arrow",
     "jsdoc"
   ],
   "overrides": [
@@ -98,16 +97,6 @@
         "import/first": "error",
         "import/newline-after-import": "error",
         "import/no-duplicates": "error",
-        "prefer-arrow-callback": "off",
-        "prefer-arrow/prefer-arrow-functions": [
-          "error",
-          {
-            "disallowPrototype": true,
-            "singleReturnOnly": false,
-            "classPropertiesAllowed": false,
-            "allowStandaloneDeclarations": true
-          }
-        ],
         "@typescript-eslint/consistent-type-definitions": "error",
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": "error",
